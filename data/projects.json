@@ -1,0 +1,42 @@
+[
+  {
+    "slug": "hexagonal-stools",
+    "title": "Hexagonal Stools",
+    "category": "Furniture",
+    "year": "2021",
+    "thumbnail": "/projects/hexagonal-stools/hero.jpg",
+    "images": [
+      "/projects/hexagonal-stools/01.png",
+      "/projects/hexagonal-stools/02.png"
+    ],
+    "description": "aa"
+  },
+
+  {
+    "slug": "house-s",
+    "title": "House S",
+    "category": "Architecture Design",
+    "year": "2022",
+    "thumbnail": "/projects/house-s/hero.png",
+    "images": [
+      "/projects/house-s/01.jpg",
+      "/projects/house-s/02.jpg"
+    ],
+    "description": "aa"
+  },
+
+  {
+    "slug": "cross-vaulted-pavillion",
+    "title": "Cross Vaulted Pavillion",
+    "category": "Architecture Design",
+    "year": "2022",
+    "thumbnail": "/projects/cross-vaulted-pavillion/hero.jpg",
+    "images": [
+      "/projects/cross-vaulted-pavillion/01.jpg",
+      "/projects/cross-vaulted-pavillion/02.jpg"
+    ],
+    "description": "aa"
+  }
+]  
+  
+
