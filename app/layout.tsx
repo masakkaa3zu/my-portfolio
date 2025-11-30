@@ -6,7 +6,12 @@ export const metadata = {
   description: "Architecture / Environmental Device / Installation",
 };
 
-export default function RootLayout({ children }) {
+export default function RootLayout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
+
   return (
     <html lang="ja">
       <body className="max-w-[1600px] mx-auto px-6">
