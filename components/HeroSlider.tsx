@@ -120,7 +120,7 @@ export default function HeroSlider() {
 
             {/* タイトル（クローンを除外） */}
             {i !== 0 && i !== slides.length - 1 && (
-              <div className="absolute bottom-10 left-8 text-white z-20">
+              <div className="absolute bottom-10 left-6 md:left-8 lg:left-16 text-white z-20">
                 <p className="text-[8px] opacity-80 tracking-widest uppercase">
                   {p.category}
                 </p>
