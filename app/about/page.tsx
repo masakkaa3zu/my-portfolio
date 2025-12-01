@@ -6,9 +6,10 @@ import { aboutText } from "@/data/about";
 
 export default function AboutPage() {
   const summaryRef = useRef<HTMLButtonElement | null>(null);
-  const [offset, setOffset] = useState(0);      // デスクトップ用：テキストブロックの margin-top
-  const [isOpen, setIsOpen] = useState(false);  // トグル開閉
-  const [isHover, setIsHover] = useState(false); // デスクトップでの hover 状態
+  const [offset, setOffset] = useState(0); // デスクトップ用：テキストブロックの margin-top
+  const [isOpen, setIsOpen] = useState(false); // トグル開閉
+  const [isHover, setIsHover] = useState(false); // hover 状態（PC・タブレット）
+  const [isSmallScreen, setIsSmallScreen] = useState(false); // スマホ幅かどうか
 
   // ===========================
   // デスクトップ用：「Masakazu Sakakibara」を 1/3 線にロック
@@ -51,7 +52,34 @@ export default function AboutPage() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  const handleToggle = () => setIsOpen((prev) => !prev);
+  // ===========================
+  // スマホ幅判定（〜767px をスマホ扱い）
+  // ===========================
+  useEffect(() => {
+    if (typeof window === "undefined") return;
+
+    const mq = window.matchMedia("(max-width: 767px)");
+    const listener = (e: MediaQueryListEvent) => {
+      setIsSmallScreen(e.matches);
+    };
+
+    // 初期値
+    setIsSmallScreen(mq.matches);
+    mq.addEventListener("change", listener);
+
+    return () => {
+      mq.removeEventListener("change", listener);
+    };
+  }, []);
+
+  const handleToggle = () => {
+    setIsOpen((prev) => !prev);
+  };
+
+  // モバイル〜タブレットでの写真表示条件
+  // スマホ：isOpen だけで制御（閉じたら必ず閉じる）
+  // タブレット：isHover || isOpen（近づいたら出て、開いても出る）
+  const showPhotoMobile = isSmallScreen ? isOpen : isHover || isOpen;
 
   return (
     <main className="w-full min-h-screen">
@@ -63,12 +91,11 @@ export default function AboutPage() {
           block lg:hidden
           w-full
           px-6 md:px-8
-          pt-[10vh] 
-          md:pt-[30vh] 
+          pt-[10vh] md:pt-[30vh]   /* SP: 1/4, md: 1/3 付近 */
           pb-24
         "
       >
-        {/* ABOUT ＋ ボタン（1/3 あたり） */}
+        {/* ABOUT ＋ ボタン（1/4〜1/3 あたり） */}
         <div className="space-y-3">
           <p className="text-[10px] tracking-[0.3em] uppercase text-neutral-500">
             ABOUT
@@ -77,8 +104,8 @@ export default function AboutPage() {
           <div className="group">
             <button
               onClick={handleToggle}
-              onMouseEnter={() => setIsHover(true)}   // ★ 追加
-              onMouseLeave={() => setIsHover(false)}  // ★ 追加
+              onMouseEnter={() => setIsHover(true)}
+              onMouseLeave={() => setIsHover(false)}
               className="
                 flex items-center justify-between gap-4
                 cursor-pointer select-none
@@ -112,34 +139,35 @@ export default function AboutPage() {
 
         {/* 写真：ボタンのすぐ下（SP/タブレット） */}
         <div
-        className={`
+          className={`
             mt-8
             overflow-hidden
             transition-[max-height,opacity] duration-500 ease-out
-            ${isHover || isOpen ? "max-h-[600px] opacity-100" : "max-h-0 opacity-0"}
-        `}
+            ${showPhotoMobile ? "max-h-[600px] opacity-100" : "max-h-0 opacity-0"}
+          `}
         >
-        <div
-            className="
-            relative
-            w-full 
-            max-w-[500px] md:max-w-[300px]  /* タブレットでは最大幅を制限 */
-            aspect-square             /* 常に正方形 1:1 */
-            bg-neutral-100
-            overflow-hidden
-            "
-        >
-            <Image
-            src="/about/profile.jpg"
-            alt="Masakazu Sakakibara portrait"
-            fill
-            sizes="100vw"
-            className="object-cover"
-            priority
-            />
+          <div className="flex md:block">
+            <div
+              className="
+                relative
+                w-full
+                max-w-[500px] md:max-w-[300px]  /* SP: 最大360px, md以上: 最大480px */
+                aspect-square                    /* 常に正方形 */
+                bg-neutral-100
+                overflow-hidden
+              "
+            >
+              <Image
+                src="/about/profile.jpg"
+                alt="Masakazu Sakakibara portrait"
+                fill
+                sizes="100vw"
+                className="object-cover"
+                priority
+              />
+            </div>
+          </div>
         </div>
-        </div>
-
 
         {/* テキスト：写真のさらに下にトグルで表示 */}
         <div
@@ -171,7 +199,7 @@ export default function AboutPage() {
       </section>
 
       {/* ============================= */}
-      {/* デスクトップ用レイアウト（既存グリッド） */}
+      {/* デスクトップ用レイアウト（4カラムグリッド） */}
       {/* ============================= */}
       <section
         className="
