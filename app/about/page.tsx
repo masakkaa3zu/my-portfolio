@@ -64,7 +64,7 @@ export default function AboutPage() {
           w-full
           px-6 md:px-8
           pt-[10vh] 
-          pt-[30vh] 
+          md:pt-[30vh] 
           pb-24
         "
       >
@@ -123,7 +123,7 @@ export default function AboutPage() {
             className="
             relative
             w-full 
-            max-w-[300px] md:max-w-[300px]  /* タブレットでは最大幅を制限 */
+            max-w-[500px] md:max-w-[300px]  /* タブレットでは最大幅を制限 */
             aspect-square             /* 常に正方形 1:1 */
             bg-neutral-100
             overflow-hidden
