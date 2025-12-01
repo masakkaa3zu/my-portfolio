@@ -3,7 +3,7 @@ import Header from "@/components/Header";
 import DevGridOverlay from "@/components/DevGridOverlay"; // ← とりあえず残してOK
 import { inter, notoSansJp } from "./fonts";
 
-const SHOW_DEV_GRID = false; // ← ここで ON/OFF 切り替え
+const SHOW_DEV_GRID = true; // ← ここで ON/OFF 切り替え
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (

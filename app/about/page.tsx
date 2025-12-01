@@ -122,7 +122,7 @@ export default function AboutPage() {
                   ${isOpen ? "scale-[1.03]" : "scale-100"}
                 `}
               >
-                Masakazu Sakakibara
+                榊原 昌和
               </span>
               <span
                 className={`
@@ -250,7 +250,7 @@ export default function AboutPage() {
                   ${isHover || isOpen ? "scale-[1.05]" : "scale-100"}
                 `}
               >
-                Masakazu Sakakibara
+                榊原 昌和
               </span>
               <span
                 className={`
@@ -296,7 +296,7 @@ export default function AboutPage() {
         </div>
 
         {/* 4列目：写真（デスクトップ） */}
-        <div className="mt-10">
+        <div>
           <div className="flex justify-end">
             <div
               className={`
