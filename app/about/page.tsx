@@ -6,12 +6,12 @@ import { aboutText } from "@/data/about";
 
 export default function AboutPage() {
   const summaryRef = useRef<HTMLButtonElement | null>(null);
-  const [offset, setOffset] = useState(0);      // テキストブロックの margin-top
+  const [offset, setOffset] = useState(0);      // デスクトップ用：テキストブロックの margin-top
   const [isOpen, setIsOpen] = useState(false);  // トグル開閉
-  const [isHover, setIsHover] = useState(false); // hover 状態
+  const [isHover, setIsHover] = useState(false); // デスクトップでの hover 状態
 
   // ===========================
-  // 「Masakazu Sakakibara」を 1/3 線にロック
+  // デスクトップ用：「Masakazu Sakakibara」を 1/3 線にロック
   // ===========================
   useEffect(() => {
     let frame: number | null = null;
@@ -21,7 +21,7 @@ export default function AboutPage() {
 
       const width = window.innerWidth;
       if (width < 1024) {
-        // モバイルは自然なフロー
+        // モバイル・タブレットでは JS 位置合わせをオフ
         if (offset !== 0) setOffset(0);
         return;
       }
@@ -51,47 +51,155 @@ export default function AboutPage() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  const handleToggle = () => {
-    setIsOpen((prev) => !prev);
-  };
+  const handleToggle = () => setIsOpen((prev) => !prev);
 
   return (
-    <main
-      className="
-        w-full
-        px-6 md:px-8 lg:px-16
-        min-h-screen
-        pt-24 md:pt-28 pb-32
-        lg:pt-0 lg:pb-0
-      "
-    >
+    <main className="w-full min-h-screen">
+      {/* ============================= */}
+      {/* モバイル〜タブレット用レイアウト */}
+      {/* ============================= */}
       <section
         className="
+          block lg:hidden
           w-full
-          grid
-          grid-cols-1
-          lg:grid-cols-4
+          px-6 md:px-8
+          pt-[10vh] 
+          pt-[30vh] 
+          pb-24
+        "
+      >
+        {/* ABOUT ＋ ボタン（1/3 あたり） */}
+        <div className="space-y-3">
+          <p className="text-[10px] tracking-[0.3em] uppercase text-neutral-500">
+            ABOUT
+          </p>
+
+          <div className="group">
+            <button
+              onClick={handleToggle}
+              onMouseEnter={() => setIsHover(true)}   // ★ 追加
+              onMouseLeave={() => setIsHover(false)}  // ★ 追加
+              className="
+                flex items-center justify-between gap-4
+                cursor-pointer select-none
+                w-full text-left
+                bg-transparent border-none p-0
+              "
+              aria-expanded={isOpen}
+              type="button"
+            >
+              <span
+                className={`
+                  text-2xl font-light tracking-[0.12em]
+                  transition-transform duration-300 ease-out origin-left
+                  ${isOpen ? "scale-[1.03]" : "scale-100"}
+                `}
+              >
+                Masakazu Sakakibara
+              </span>
+              <span
+                className={`
+                  text-[10px] text-neutral-400
+                  transition-transform duration-300 ease-out
+                  ${isOpen ? "rotate-45 scale-110" : "rotate-0 scale-100"}
+                `}
+              >
+                +
+              </span>
+            </button>
+          </div>
+        </div>
+
+        {/* 写真：ボタンのすぐ下（SP/タブレット） */}
+        <div
+        className={`
+            mt-8
+            overflow-hidden
+            transition-[max-height,opacity] duration-500 ease-out
+            ${isHover || isOpen ? "max-h-[600px] opacity-100" : "max-h-0 opacity-0"}
+        `}
+        >
+        <div
+            className="
+            relative
+            w-full 
+            max-w-[300px] md:max-w-[300px]  /* タブレットでは最大幅を制限 */
+            aspect-square             /* 常に正方形 1:1 */
+            bg-neutral-100
+            overflow-hidden
+            "
+        >
+            <Image
+            src="/about/profile.jpg"
+            alt="Masakazu Sakakibara portrait"
+            fill
+            sizes="100vw"
+            className="object-cover"
+            priority
+            />
+        </div>
+        </div>
+
+
+        {/* テキスト：写真のさらに下にトグルで表示 */}
+        <div
+          className={`
+            overflow-hidden
+            transition-[max-height] duration-500 ease-out
+            ${isOpen ? "max-h-[1000px] mt-8" : "max-h-0 mt-0"}
+          `}
+        >
+          <div
+            className={`
+              space-y-3
+              text-[13px] leading-relaxed text-neutral-700
+              transition-all duration-500 ease-out
+              ${isOpen ? "opacity-100 translate-y-0" : "opacity-0 -translate-y-4"}
+            `}
+          >
+            {aboutText.profile.map((paragraph, i) => (
+              <p key={`profile-sp-${i}`}>{paragraph}</p>
+            ))}
+            {aboutText.activities.map((paragraph, i) => (
+              <p key={`activities-sp-${i}`}>{paragraph}</p>
+            ))}
+            {aboutText.awards.map((paragraph, i) => (
+              <p key={`awards-sp-${i}`}>{paragraph}</p>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ============================= */}
+      {/* デスクトップ用レイアウト（既存グリッド） */}
+      {/* ============================= */}
+      <section
+        className="
+          hidden lg:grid
+          w-full
+          px-16
+          min-h-screen
+          grid-cols-4
           gap-y-12
-          gap-x-6 md:gap-x-8 lg:gap-x-16
+          gap-x-16
           items-start
         "
       >
-        {/* 1列目：PC では余白 */}
-        <div className="hidden lg:block" />
+        {/* 1列目：余白 */}
+        <div />
 
         {/* 2–3列目：ABOUT + 名前トグル + テキスト */}
         <div
           className="
-            lg:col-span-2
-            space-y-3 md:space-y-4
+            col-span-2
+            space-y-3
           "
-          style={{ marginTop: offset }}  // 1/3 線にロック
+          style={{ marginTop: offset }} // 1/3 線にロック
         >
           <p className="text-[10px] tracking-[0.3em] uppercase text-neutral-500">
             ABOUT
           </p>
 
-          {/* ===== トグル（hoverで写真＆文字スケール / clickで開く） ===== */}
           <div className="group">
             <button
               ref={summaryRef}
@@ -128,7 +236,7 @@ export default function AboutPage() {
               </span>
             </button>
 
-            {/* 高さ & フェード & 上下アニメーション付き本文 */}
+            {/* テキスト（デスクトップ用） */}
             <div
               className={`
                 mt-12
@@ -145,36 +253,31 @@ export default function AboutPage() {
                   ${isOpen ? "opacity-100 translate-y-0" : "opacity-0 -translate-y-4"}
                 `}
               >
-                {/* profile 段落 */}
                 {aboutText.profile.map((paragraph, i) => (
-                  <p key={`profile-${i}`}>{paragraph}</p>
+                  <p key={`profile-lg-${i}`}>{paragraph}</p>
                 ))}
-
-                {/* activities 段落 */}
                 {aboutText.activities.map((paragraph, i) => (
-                  <p key={`activities-${i}`}>{paragraph}</p>
+                  <p key={`activities-lg-${i}`}>{paragraph}</p>
                 ))}
-
-                {/* awards 段落 */}
                 {aboutText.awards.map((paragraph, i) => (
-                  <p key={`awards-${i}`}>{paragraph}</p>
+                  <p key={`awards-lg-${i}`}>{paragraph}</p>
                 ))}
               </div>
             </div>
           </div>
         </div>
 
-        {/* 4列目：写真（hover or open でフェードイン） */}
-        <div className="mt-10 lg:mt-0">
-          <div className="flex justify-start lg:justify-end">
+        {/* 4列目：写真（デスクトップ） */}
+        <div className="mt-10">
+          <div className="flex justify-end">
             <div
               className={`
                 relative
                 w-full
-                max-w-[320px] lg:max-w-none
+                max-w-none
                 overflow-hidden
                 bg-neutral-100
-                h-auto
+                aspect-[3/4]
                 lg:h-[33.333vh]
                 lg:mt-[33.333vh]
                 transition-opacity duration-500 ease-out
@@ -182,7 +285,7 @@ export default function AboutPage() {
               `}
             >
               <Image
-                src="/about/profile.jpg"   // 実際のパスに合わせて
+                src="/about/profile.jpg"
                 alt="Masakazu Sakakibara portrait"
                 fill
                 sizes="(min-width: 1024px) 25vw, (min-width: 768px) 40vw, 100vw"
