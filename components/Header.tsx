@@ -2,26 +2,42 @@
 
 import Link from "next/link";
 import { useEffect, useState } from "react";
+import { usePathname } from "next/navigation";
 
 export default function Header() {
   const [open, setOpen] = useState(false);
   const [isOnHero, setIsOnHero] = useState(true);
+
+  const pathname = usePathname();
+  const isHome = pathname === "/";
 
   // ================================
   // Hero 上かどうか判定
   // ================================
   useEffect(() => {
     const handleScroll = () => {
-      const heroHeight = window.innerHeight * 0.9; // 90%までをHero扱い
+      const heroHeight = window.innerHeight * 1; // 90%までをHero扱い
       setIsOnHero(window.scrollY < heroHeight);
     };
 
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+    // ホームのときだけスクロール監視
+    if (isHome) {
+      window.addEventListener("scroll", handleScroll);
+      // 初期位置でも判定しておく
+      handleScroll();
+    } else {
+      // ホーム以外は常に「Heroの外」扱いにしておく
+      setIsOnHero(false);
+    }
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, [isHome]);
 
   // 文字色（白→黒）
-  const color = isOnHero ? "text-white" : "text-black";
+  // ホーム("/")では Hero上だけ白、それ以外のページは常に黒
+  const color = isHome && isOnHero ? "text-white" : "text-black";
 
   return (
     <>
@@ -46,10 +62,7 @@ export default function Header() {
         </Link>
 
         {/* 右：ハンバーガー → X */}
-        <button
-          onClick={() => setOpen(!open)}
-          className="relative w-6 h-5"
-        >
+        <button onClick={() => setOpen(!open)} className="relative w-6 h-5">
           {/* line 1 */}
           <span
             className={`
@@ -87,15 +100,27 @@ export default function Header() {
           z-40
         `}
       >
-        <Link href="/about" onClick={() => setOpen(false)} className="hover:opacity-60">
+        <Link
+          href="/about"
+          onClick={() => setOpen(false)}
+          className="hover:opacity-60"
+        >
           ABOUT
         </Link>
 
-        <Link href="/projects" onClick={() => setOpen(false)} className="hover:opacity-60">
+        <Link
+          href="/projects"
+          onClick={() => setOpen(false)}
+          className="hover:opacity-60"
+        >
           PROJECTS
         </Link>
 
-        <Link href="/contact" onClick={() => setOpen(false)} className="hover:opacity-60">
+        <Link
+          href="/contact"
+          onClick={() => setOpen(false)}
+          className="hover:opacity-60"
+        >
           CONTACT
         </Link>
       </div>

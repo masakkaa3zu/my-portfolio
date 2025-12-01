@@ -1,35 +1,212 @@
 @import "tailwindcss";
-html, body {
+
+html,
+body {
   margin: 0;
   padding: 0;
 }
 
+/* 共通テーマ（常にライト） */
 :root {
   --background: #ffffff;
   --foreground: #171717;
 }
 
+/* Tailwind v4 のテーマ定義 */
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+
+  /* ここは今後 Inter / Noto Sans JP をつなげる用の定義
+     まだ fonts.ts を入れてなくてもエラーにはならないのでこのままでOK */
+  --font-sans: var(--font-inter), var(--font-noto-sans-jp),
+    system-ui, -apple-system, BlinkMacSystemFont,
+    "Hiragino Sans", "Yu Gothic", sans-serif;
+
+  --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
+    "Liberation Mono", "Courier New", monospace;
 }
 
+/* ★ ダークモード切り替えは一旦なしにする
 @media (prefers-color-scheme: dark) {
   :root {
     --background: #0a0a0a;
     --foreground: #ededed;
   }
 }
+*/
 
+/* ベーススタイル */
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-sans);
 }
 
-body {
-  background-color: white;
-  color: black;
+/* ================================
+   グローバル余白＆情報ページレイアウト
+   ================================ */
+
+/* 画面全体の左右余白（ページ共通） */
+:root {
+  --page-padding-x: 2rem; /* モバイル〜タブレットの左右余白 */
+}
+
+@media (min-width: 768px) {
+  :root {
+    --page-padding-x: 2.5rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  :root {
+    --page-padding-x: 3rem; /* PCの左右余白 */
+  }
+}
+
+/* サイト共通の横方向コンテナ */
+.page-shell {
+  width: 100%;
+  max-width: 1120px;     /* 全体の最大幅（必要なら調整） */
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: var(--page-padding-x);
+  padding-right: var(--page-padding-x);
+}
+
+/* 情報ページ用：4分割グリッド（PC時） */
+.info-grid {
+  display: grid;
+  grid-template-columns: 1fr; /* モバイルは1列 */
+}
+
+@media (min-width: 1024px) {
+  .info-grid {
+    grid-template-columns: repeat(4, minmax(0, 1fr)); /* 4等分 */
+    column-gap: 2rem;
+  }
+}
+
+/* 真ん中の2列だけにコンテンツを入れる用 */
+.info-grid-inner {
+  grid-column: 1 / -1; /* モバイルは全幅 */
+
+  /* PC時：2列目〜3列目（中央2列）を使用 */
+}
+@media (min-width: 1024px) {
+  .info-grid-inner {
+    grid-column: 2 / span 2;
+  }
+}
+/* ================================
+   4分割レイアウト（情報ページ用）
+   ================================ */
+
+/* 共通：ページ左右の余白（サイト全体で使える） */
+:root {
+  --page-padding-x: 2rem;
+}
+
+@media (min-width: 768px) {
+  :root {
+    --page-padding-x: 2.5rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  :root {
+    --page-padding-x: 3rem;
+  }
+}
+
+/* ページ共通コンテナ：左右余白だけ決める */
+.page-shell {
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: var(--page-padding-x);
+  padding-right: var(--page-padding-x);
+}
+
+/* 4分割レイアウト：画面全幅を4カラムにする */
+.layout-4col {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr); /* モバイル：1列 */
+}
+
+/* PC：画面を4等分（左右は余白に使える） */
+@media (min-width: 1024px) {
+  .layout-4col {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    column-gap: 2rem;
+  }
+}
+
+/* 真ん中2列だけを使うブロック */
+.layout-4col-center {
+  grid-column: 1 / -1; /* モバイルは全幅 */
+}
+
+@media (min-width: 1024px) {
+  .layout-4col-center {
+    grid-column: 2 / span 2; /* col2〜3（中央2列） */
+  }
+}
+/* ================================
+   レイアウト：4等分グリッド
+   ================================ */
+
+/* ページの左右余白（最小限） */
+.layout-page {
+  width: 100%;
+  padding-inline: 1.5rem; /* px-6 相当 */
+}
+
+@media (min-width: 768px) {
+  .layout-page {
+    padding-inline: 2rem; /* px-8 相当 */
+  }
+}
+
+@media (min-width: 1024px) {
+  .layout-page {
+    padding-inline: 4rem; /* px-16 相当 */
+  }
+}
+
+/* 4等分グリッド（PC）＋ 1列（SP） */
+.layout-grid-4 {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr); /* SP: 1列 */
+  row-gap: 3rem;
+}
+
+@media (min-width: 1024px) {
+  .layout-grid-4 {
+    grid-template-columns: repeat(4, minmax(0, 1fr)); /* PC: 4等分 */
+    column-gap: 4rem; /* ★ 外側余白(px-16)と揃える */
+  }
+}
+
+/* 中央2列（col 2〜3）を使うブロック */
+.layout-main {
+  grid-column: 1 / -1; /* SP: 全幅 */
+}
+
+@media (min-width: 1024px) {
+  .layout-main {
+    grid-column: 2 / span 2; /* PC: 中央2列 */
+  }
+}
+
+/* 右端の列（写真用） */
+.layout-photo {
+  grid-column: 1 / -1; /* SP: 全幅 */
+}
+
+@media (min-width: 1024px) {
+  .layout-photo {
+    grid-column: 4 / span 1;   /* PC: 4列目 */
+    align-self: center;         /* 縦方向：列の中央寄せ */
+  }
 }
