@@ -10,6 +10,13 @@ body {
 :root {
   --background: #ffffff;
   --foreground: #171717;
+
+  /* ★ Adobe Futura 用の変数
+     "futura-pt" の部分は、実際の font-family 名に変更してください
+     （https://use.typekit.net/uqa5hvt.css を開いて `font-family:"xxxxx"` を確認）
+  */
+  --font-futura: "futura-pt", system-ui, -apple-system, BlinkMacSystemFont,
+    "Hiragino Sans", "Yu Gothic", sans-serif;
 }
 
 /* Tailwind v4 のテーマ定義 */
@@ -17,9 +24,8 @@ body {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
 
-  /* ここは今後 Inter / Noto Sans JP をつなげる用の定義
-     まだ fonts.ts を入れてなくてもエラーにはならないのでこのままでOK */
-  --font-sans: var(--font-inter), var(--font-noto-sans-jp),
+  /* ★ Inter はやめて Futura + Noto Sans JP に */
+  --font-sans: var(--font-futura), var(--font-noto-sans-jp),
     system-ui, -apple-system, BlinkMacSystemFont,
     "Hiragino Sans", "Yu Gothic", sans-serif;
 
@@ -27,21 +33,13 @@ body {
     "Liberation Mono", "Courier New", monospace;
 }
 
-/* ★ ダークモード切り替えは一旦なしにする
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
-*/
-
 /* ベーススタイル */
 body {
   background: var(--background);
   color: var(--foreground);
   font-family: var(--font-sans);
 }
+
 
 /* ================================
    グローバル余白＆情報ページレイアウト
@@ -209,4 +207,23 @@ body {
     grid-column: 4 / span 1;   /* PC: 4列目 */
     align-self: center;         /* 縦方向：列の中央寄せ */
   }
+}
+
+/* Futura を使うための専用クラス */
+.font-futura {
+  font-family: var(--font-futura), var(--font-noto-sans-jp),
+    system-ui, -apple-system, BlinkMacSystemFont,
+    "Hiragino Sans", "Yu Gothic", sans-serif;
+}
+
+/* ================================
+   Futura Light 専用クラス（ヘッダー用）
+   ================================ */
+
+.font-futura-light {
+  font-family: var(--font-futura), var(--font-noto-sans-jp),
+    system-ui, -apple-system, BlinkMacSystemFont,
+    "Hiragino Sans", "Yu Gothic", sans-serif;
+  font-weight: 300; /* Light ウェイト */
+  letter-spacing: 0.12em; /* ちょい広め（お好みで） */
 }

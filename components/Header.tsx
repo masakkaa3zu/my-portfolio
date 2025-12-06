@@ -53,9 +53,9 @@ export default function Header() {
         {/* 左：ホームリンク */}
         <Link
           href="/"
-          className={`font-light hover:opacity-70 transition-opacity ${color}`}
+          className={`font-futura-light hover:opacity-70 transition-opacity ${color}`}
         >
-          MASAKAZU SAKAKIBARA
+          Masakazu Sakakibara
         </Link>
 
         {/* 右：ハンバーガー */}
