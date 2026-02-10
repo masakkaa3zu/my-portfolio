@@ -11,7 +11,7 @@
       "/projects/hexagonal-stools/01.png",
       "/projects/hexagonal-stools/02.png"
     ],
-    "description": { "ja": "aa", "en": "aa" }
+    "description": { "ja": "12mm三六判のラワン合板1枚からスツールを制作した。6角形のリングの寸法を少しずつずらすことによりより歩留まり向上を図り、パーツを積み上げる際に角度をずらすことにより折れを防止しながら平面積層での高さを座高まで高めている。", "en": "I made a stool from a single 12 mm lauan plywood sheet (3×6 shaku size =910mm×1820mm). By gradually shifting the dimensions of the hexagonal rings, I improved material yield. When stacking the parts, I also rotated the angles to prevent splitting, which allowed the flat-laminated assembly to reach seat height." }
   },
 
   {
@@ -27,7 +27,7 @@
       "/projects/house-s/01.jpg",
       "/projects/house-s/02.jpg"
     ],
-    "description": { "ja": "aa", "en": "aa" }
+    "description": { "ja": "延べ床面積100平米の4人家族のための住宅を設計した。プライベートスペースとパブリックスペースを明確に設け、その残余空間に中間領域を設けた。", "en": "I designed a 100-square-meter house for a family of four. I clearly defined private and public spaces, and created an intermediate zone in the residual space between them." }
   },
 
   {
@@ -40,9 +40,10 @@
     "focus": "bottom",
     "images": [
       "/projects/cross-vaulted-pavillion/01.jpg",
-      "/projects/cross-vaulted-pavillion/02.jpg"
+      "/projects/cross-vaulted-pavillion/02.jpg",
+      "/projects/cross-vaulted-pavillion/1000roofs.gif"
     ],
-    "description": { "ja": "aa", "en": "aa" }
+    "description": { "ja": "大学の遊歩道の交差点上に休憩所を設計した。構造的合理性と通行上の機能性に優れたヴォールトを何方向にも交差させることにより、その場所の交差点をより複雑化させた。ただ通り過ぎる学生もいれば、知り合いを待ち合わせをする学生、読書をする学生、昼寝をする学生がいる。屋上は展望庭園になっている。この屋根の設計をコンピュータープログラムに書き下し、乱数を組み合わせることにより無数の可能性を列挙することができる。3本の基準となる歩道の角度を変えることにより、無数の屋根の形状の可能性を生み出す。", "en": "I designed a rest area at the intersection of pedestrian paths on a university campus. By intersecting vaults—structures that are both structurally rational and functionally efficient for circulation—in multiple directions, I made the intersection itself more complex. Some students simply pass through, while others wait for friends, read, or take a nap. The roof is designed as a rooftop viewing garden. I translated this roof design into a computer program, enabling it to enumerate countless possibilities through combinations of random variables. By changing the angles of the three reference pedestrian paths, the program can generate an infinite range of roof forms." }
   },
 
   {
