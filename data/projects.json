@@ -54,8 +54,11 @@
     "focus": "bottom-zoom",
     "images": [
       "/projects/build-the-wind/01.jpg",
-      "/projects/build-the-wind/02.jpg"
+      "/projects/build-the-wind/02.jpg",
+      "/projects/build-the-wind/03.jpg",
+      "/projects/build-the-wind/04.jpg",
+      "/projects/build-the-wind/05.jpg"
     ],
-    "description": { "ja": "aa", "en": "aa" }
+    "description": { "ja": "風について考え直す。建物の外では風が吹いている。風はなぜ吹いているのか。それは熱力学的現象である。温まった空気が上昇し、冷えた空気は下降する。気圧の差が生まれ空気が動く。これが風である。大気の作用は気象スケールで発生するが、それを体験できるスケールに落とし込む。すると、ファンを回して無理やり空気を動かした時とは明らかに異なる空気の動きを目にすることができる。私たちが自然の風を心地良いと感じる理由のかけらを見出すことができるのではないか。エアコンのヒートポンプの技術を使った。同時に高温の部分と低温の部分を作り出せるという特徴を持つエアコンに対して、熱交換器を自作した銅管のタワーに置き換えることにより上昇気流と下降気流を促している。室内を均質な温度に調整するために用いられるエアコンが、熱と風によって環境をかき乱し、タワーの周りに第二の環境を作り出しているということは、現代の建築における内外を仕切り内部を快適にするために外部に熱を捨てる、という空間の作り方への疑問を投げかけている。2本の銅管のタワーの片側は50℃に温まり、片側は0℃に冷える。周りの空気が温まり、もしくは冷やされ、風が起きる。タワーは池の中に建てられており、タワーの内側のミストメーカーから発生する霧が風の動きを可視化する。", "en": "Rethinking wind. Outside buildings, wind blows. Why does it blow? It is a thermodynamic phenomenon. Warm air rises and cool air descends. Differences in air pressure cause air to move. This is wind. Atmospheric processes occur at a meteorological scale, but this work brings them down to an experiential scale. What emerges is a movement of air distinctly different from that produced by a fan forcing air around. Perhaps we can find a clue to why we find natural wind so pleasant. The work employs heat pump technology used in air conditioning systems. By replacing the heat exchanger of an air conditioner—which can simultaneously produce hot and cold zones—with handmade copper pipe towers, updrafts and downdrafts are generated. The air conditioner, normally used to regulate indoor temperature uniformly, here disrupts the environment through heat and wind, creating a second environment around the towers. This raises questions about the modern architectural approach of partitioning interior from exterior and expelling heat outside to maintain indoor comfort. One side of the two copper pipe towers heats up to 50°C while the other cools down to 0°C. The surrounding air is warmed or cooled, and wind arises. The towers are erected in a pool, and mist generated from mist makers inside the towers visualizes the movement of wind." }
   }
 ]
