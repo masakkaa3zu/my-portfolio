@@ -2,9 +2,11 @@
 
 import Image from "next/image";
 import { useEffect, useState } from "react";
-import projects from "@/data/projects.json";
+import { projects } from "@/data/projects";
+import { useLocale } from "@/contexts/LocaleContext";
 
 export default function HeroSlider() {
+  const { locale } = useLocale();
   const featured = projects.filter((p) => p.featured);
 
   // クローン方式で無限ループ
@@ -121,10 +123,10 @@ export default function HeroSlider() {
             {/* タイトル（クローンを除外） */}
             {i !== 0 && i !== slides.length - 1 && (
               <div className="absolute bottom-10 left-6 md:left-8 lg:left-16 text-white z-20">
-                <p className="text-[8px] opacity-80 tracking-widest uppercase">
-                  {p.category}
+                <p className="text-[10px] font-futura opacity-80 tracking-widest uppercase">
+                  {p.category[locale]}
                 </p>
-                <h1 className="text-sm font-light mt-1">
+                <h1 className="text-sm font-futura-light mt-1">
                   {p.title}
                 </h1>
               </div>

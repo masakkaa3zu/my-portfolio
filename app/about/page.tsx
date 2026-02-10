@@ -3,8 +3,12 @@
 import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
 import { aboutText } from "@/data/about";
+import { useLocale } from "@/contexts/LocaleContext";
+import { t } from "@/data/translations";
 
 export default function AboutPage() {
+  const { locale } = useLocale();
+  const localAbout = aboutText[locale];
   const summaryRef = useRef<HTMLButtonElement | null>(null);
   const [offset, setOffset] = useState(0); // デスクトップ用：テキストブロックの margin-top
   const [isOpen, setIsOpen] = useState(false); // トグル開閉
@@ -97,7 +101,7 @@ export default function AboutPage() {
       >
         {/* ABOUT ＋ ボタン（1/4〜1/3 あたり） */}
         <div className="space-y-3">
-          <p className="text-[10px] tracking-[0.3em] uppercase text-neutral-500">
+          <p className="text-[10px] font-futura tracking-[0.3em] uppercase text-neutral-500">
             ABOUT
           </p>
 
@@ -117,12 +121,12 @@ export default function AboutPage() {
             >
               <span
                 className={`
-                  text-2xl font-light tracking-[0.12em]
+                  text-2xl font-futura-light tracking-[0.12em]
                   transition-transform duration-300 ease-out origin-left
                   ${isOpen ? "scale-[1.03]" : "scale-100"}
                 `}
               >
-                榊原 昌和
+                {t.name[locale]}
               </span>
               <span
                 className={`
@@ -185,13 +189,13 @@ export default function AboutPage() {
               ${isOpen ? "opacity-100 translate-y-0" : "opacity-0 -translate-y-4"}
             `}
           >
-            {aboutText.profile.map((paragraph, i) => (
+            {localAbout.profile.map((paragraph, i) => (
               <p key={`profile-sp-${i}`}>{paragraph}</p>
             ))}
-            {aboutText.activities.map((paragraph, i) => (
+            {localAbout.activities.map((paragraph, i) => (
               <p key={`activities-sp-${i}`}>{paragraph}</p>
             ))}
-            {aboutText.awards.map((paragraph, i) => (
+            {localAbout.awards.map((paragraph, i) => (
               <p key={`awards-sp-${i}`}>{paragraph}</p>
             ))}
           </div>
@@ -224,7 +228,7 @@ export default function AboutPage() {
           "
           style={{ marginTop: offset }} // 1/3 線にロック
         >
-          <p className="text-[10px] tracking-[0.3em] uppercase text-neutral-500">
+          <p className="text-[10px] font-futura tracking-[0.3em] uppercase text-neutral-500">
             ABOUT
           </p>
 
@@ -245,12 +249,12 @@ export default function AboutPage() {
             >
               <span
                 className={`
-                  text-2xl md:text-[28px] font-light tracking-[0.12em]
+                  text-2xl md:text-[28px] font-futura-light tracking-[0.12em]
                   transition-transform duration-300 ease-out origin-left
                   ${isHover || isOpen ? "scale-[1.05]" : "scale-100"}
                 `}
               >
-                榊原 昌和
+                {t.name[locale]}
               </span>
               <span
                 className={`
@@ -281,13 +285,13 @@ export default function AboutPage() {
                   ${isOpen ? "opacity-100 translate-y-0" : "opacity-0 -translate-y-4"}
                 `}
               >
-                {aboutText.profile.map((paragraph, i) => (
+                {localAbout.profile.map((paragraph, i) => (
                   <p key={`profile-lg-${i}`}>{paragraph}</p>
                 ))}
-                {aboutText.activities.map((paragraph, i) => (
+                {localAbout.activities.map((paragraph, i) => (
                   <p key={`activities-lg-${i}`}>{paragraph}</p>
                 ))}
-                {aboutText.awards.map((paragraph, i) => (
+                {localAbout.awards.map((paragraph, i) => (
                   <p key={`awards-lg-${i}`}>{paragraph}</p>
                 ))}
               </div>

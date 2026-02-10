@@ -2,7 +2,7 @@
   {
     "slug": "hexagonal-stools",
     "title": "Hexagonal Stools",
-    "category": "Furniture",
+    "category": { "ja": "家具", "en": "Furniture" },
     "year": "2021",
     "thumbnail": "/projects/hexagonal-stools/hero.jpg",
     "featured": false,
@@ -11,13 +11,13 @@
       "/projects/hexagonal-stools/01.png",
       "/projects/hexagonal-stools/02.png"
     ],
-    "description": "aa"
+    "description": { "ja": "aa", "en": "aa" }
   },
 
   {
     "slug": "house-s",
     "title": "House S",
-    "category": "Architecture Design",
+    "category": { "ja": "建築設計", "en": "Architecture Design" },
     "year": "2022",
     "thumbnail": "/projects/house-s/hero.png",
     "featured": false,
@@ -26,13 +26,13 @@
       "/projects/house-s/01.jpg",
       "/projects/house-s/02.jpg"
     ],
-    "description": "aa"
+    "description": { "ja": "aa", "en": "aa" }
   },
 
   {
     "slug": "cross-vaulted-pavillion",
     "title": "Cross Vaulted Pavillion",
-    "category": "Architecture Design",
+    "category": { "ja": "建築設計", "en": "Architecture Design" },
     "year": "2022",
     "thumbnail": "/projects/cross-vaulted-pavillion/hero.jpg",
     "featured": false,
@@ -41,13 +41,13 @@
       "/projects/cross-vaulted-pavillion/01.jpg",
       "/projects/cross-vaulted-pavillion/02.jpg"
     ],
-    "description": "aa"
+    "description": { "ja": "aa", "en": "aa" }
   },
 
   {
     "slug": "build-the-wind",
     "title": "Build the Wind",
-    "category": "Art Installation",
+    "category": { "ja": "インスタレーション", "en": "Art Installation" },
     "year": "2025",
     "thumbnail": "/projects/build-the-wind/hero.jpg",
     "featured": true,
@@ -56,8 +56,6 @@
       "/projects/build-the-wind/01.jpg",
       "/projects/build-the-wind/02.jpg"
     ],
-    "description": "aa"
+    "description": { "ja": "aa", "en": "aa" }
   }
-]  
-  
-
+]

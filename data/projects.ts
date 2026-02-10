@@ -2,17 +2,19 @@
 
 import projectsJson from "./projects.json";
 
+export type LocalizedString = { ja: string; en: string };
+
 export type Project = {
   slug: string;
   title: string;
-  category: string;
+  category: LocalizedString;
   year: string;
   thumbnail: string;
   featured: boolean;
   focus: "bottom" | "bottom-zoom" | "center" | "top";
   images: string[];
-  description: string;
-  tags?: string[]; // ← 将来 tags を追加したいとき用。今はなくてもOK
+  description: LocalizedString;
+  tags?: string[];
 };
 
 export const projects = projectsJson as Project[];

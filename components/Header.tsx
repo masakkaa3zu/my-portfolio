@@ -4,10 +4,12 @@
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import { usePathname } from "next/navigation";
+import { useLocale } from "@/contexts/LocaleContext";
 
 export default function Header() {
   const [open, setOpen] = useState(false);
   const [isOnHero, setIsOnHero] = useState(true);
+  const { locale, toggleLocale } = useLocale();
 
   const pathname = usePathname();
   const isHome = pathname === "/";
@@ -58,7 +60,14 @@ export default function Header() {
           Masakazu Sakakibara
         </Link>
 
-        {/* 右：ハンバーガー */}
+        {/* 右：言語切替 + ハンバーガー */}
+        <div className="flex items-center gap-4">
+          <button
+            onClick={toggleLocale}
+            className={`text-[10px] font-futura-light opacity-50 hover:opacity-100 transition-opacity ${color}`}
+          >
+            {locale === "ja" ? "EN" : "JP"}
+          </button>
         <button onClick={() => setOpen(!open)} className="relative w-6 h-5">
           <span
             className={`
@@ -79,6 +88,7 @@ export default function Header() {
             `}
           />
         </button>
+        </div>
       </header>
 
       {/* ===== Fullscreen Menu ===== */}
@@ -95,26 +105,42 @@ export default function Header() {
         <Link
           href="/about"
           onClick={() => setOpen(false)}
-          className="hover:opacity-60"
+          className="font-futura-light hover:opacity-60"
         >
           ABOUT
         </Link>
 
-        <Link
-          href="/projects"
-          onClick={() => setOpen(false)}
-          className="hover:opacity-60"
+        <a
+          href="/#projects"
+          onClick={(e) => {
+            setOpen(false);
+            if (pathname === "/") {
+              e.preventDefault();
+              document
+                .getElementById("projects")
+                ?.scrollIntoView({ behavior: "smooth" });
+            }
+          }}
+          className="font-futura-light hover:opacity-60"
         >
           PROJECTS
-        </Link>
+        </a>
 
-        <Link
-          href="/contact"
-          onClick={() => setOpen(false)}
-          className="hover:opacity-60"
+        <a
+          href="/#contact"
+          onClick={(e) => {
+            setOpen(false);
+            if (pathname === "/") {
+              e.preventDefault();
+              document
+                .getElementById("contact")
+                ?.scrollIntoView({ behavior: "smooth" });
+            }
+          }}
+          className="font-futura-light hover:opacity-60"
         >
           CONTACT
-        </Link>
+        </a>
       </div>
 
       {open && (

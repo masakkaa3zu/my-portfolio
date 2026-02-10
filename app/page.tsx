@@ -8,7 +8,7 @@ export default function Home() {
       <HeroSlider />
 
       {/* 下の project グリッド部分 */}
-      <section className="px-6 md:px-8 lg:px-16 pt-24 pb-24">
+      <section id="projects" className="px-6 md:px-8 lg:px-16 pt-24 pb-24">
         {/* DevGridOverlay と同じ 4 列グリッド + gap を再現 */}
         <div
           className="
@@ -17,10 +17,7 @@ export default function Home() {
             gap-x-6 md:gap-x-8 lg:gap-x-16
           "
         >
-          {/* ★ 4列のうち「内側2列」（col2〜col3）だけを使う */}
-          <div className="col-span-2 col-start-2">
-            <ProjectGrid projects={projects} />
-          </div>
+          <ProjectGrid projects={projects} />
         </div>
       </section>
     </main>

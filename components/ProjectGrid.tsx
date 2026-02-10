@@ -1,4 +1,6 @@
 // components/ProjectGrid.tsx
+"use client";
+
 import ProjectCard from "./ProjectCard";
 import type { Project } from "@/data/projects";
 
@@ -8,13 +10,7 @@ type Props = {
 
 export default function ProjectGrid({ projects }: Props) {
   return (
-    <div
-      className="
-        grid
-        grid-cols-1
-        gap-6 md:gap-8
-      "
-    >
+    <div className="col-span-4 flex flex-col gap-6 md:gap-8">
       {projects.map((project) => (
         <ProjectCard key={project.slug} project={project} />
       ))}
