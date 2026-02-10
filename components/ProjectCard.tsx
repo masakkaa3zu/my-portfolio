@@ -27,10 +27,10 @@ export default function ProjectCard({ project }: Props) {
         transition-colors duration-300
       "
     >
-      {/* 1列目：テキスト情報（右揃え） */}
-      <div className="col-span-1 flex flex-col items-end justify-start pt-1 space-y-1 text-right">
+      {/* デスクトップ：1列目テキスト情報（右揃え） */}
+      <div className="hidden md:flex col-span-1 flex-col items-end justify-start pt-1 space-y-1 text-right">
         <h3 className="text-xs font-futura-light tracking-[0.12em] uppercase leading-tight">
-          {project.title}
+          {project.title[locale]}
         </h3>
         <p className="text-[10px] font-futura text-neutral-500">
           {label}
@@ -40,19 +40,32 @@ export default function ProjectCard({ project }: Props) {
         </span>
       </div>
 
-      {/* 2〜3列目：画像 */}
-      <div className="col-span-2 relative aspect-[4/3] overflow-hidden bg-neutral-100">
+      {/* 画像：モバイル4列、デスクトップ2列 */}
+      <div className="col-span-4 md:col-span-2 relative aspect-[4/3] overflow-hidden bg-neutral-100">
         <Image
           src={project.thumbnail}
-          alt={project.title}
+          alt={project.title[locale]}
           fill
-          sizes="(min-width: 1024px) 75vw, (min-width: 768px) 75vw, 75vw"
+          sizes="(min-width: 1024px) 50vw, (min-width: 768px) 50vw, 100vw"
           className="
             object-cover
             transition-transform duration-700
             group-hover:scale-[1.03]
           "
         />
+      </div>
+
+      {/* モバイル：画像下にテキスト情報 */}
+      <div className="col-span-4 md:hidden mt-2 space-y-1">
+        <h3 className="text-xs font-futura-light tracking-[0.12em] uppercase leading-tight">
+          {project.title[locale]}
+        </h3>
+        <p className="text-[10px] font-futura text-neutral-500">
+          {label}
+        </p>
+        <span className="block text-[10px] font-futura text-neutral-400">
+          {project.year}
+        </span>
       </div>
     </Link>
   );

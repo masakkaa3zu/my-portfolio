@@ -21,7 +21,7 @@ export default function ProjectDetailContent({ project }: Props) {
       <img
         src={project.thumbnail}
         className="w-full h-screen object-cover"
-        alt={project.title}
+        alt={project.title[locale]}
       />
 
       <div
@@ -34,14 +34,20 @@ export default function ProjectDetailContent({ project }: Props) {
         "
       >
         {/* テキスト情報：2〜3列目 */}
-        <div className="col-span-2 col-start-2 mt-10">
-          <h1 className="text-lg font-futura-light tracking-[0.12em]">{project.title}</h1>
-          <p className="mt-4 text-[13px] leading-relaxed">{project.description[locale]}</p>
+        <div className="col-span-4 md:col-span-2 md:col-start-2 mt-10">
+          <h1 className="text-lg font-futura-light tracking-[0.12em]">{project.title[locale]}</h1>
+          <p className="mt-2 text-[10px] font-futura text-neutral-500">
+            {project.category[locale]}
+          </p>
+          <span className="block text-[10px] font-futura text-neutral-400">
+            {project.year}
+          </span>
+          <p className="mt-4 text-[13px] leading-loose">{project.description[locale]}</p>
         </div>
 
         {/* 詳細画像：2〜3列目 */}
         {project.images.map((img) => (
-          <div key={img} className="col-span-2 col-start-2 mt-10">
+          <div key={img} className="col-span-4 md:col-span-2 md:col-start-2 mt-10">
             <img src={img} className="w-full" alt="" />
           </div>
         ))}

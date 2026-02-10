@@ -1,7 +1,7 @@
 [
   {
     "slug": "hexagonal-stools",
-    "title": "Hexagonal Stools",
+    "title": { "ja": "ヘキサゴナルスツール", "en": "Hexagonal Stools" },
     "category": { "ja": "家具", "en": "Furniture" },
     "year": "2021",
     "thumbnail": "/projects/hexagonal-stools/hero.jpg",
@@ -16,7 +16,7 @@
 
   {
     "slug": "house-s",
-    "title": "House S",
+    "title": { "ja": "Sの家", "en": "House S" },
     "category": { "ja": "建築設計", "en": "Architecture Design" },
     "year": "2022",
     "thumbnail": "/projects/house-s/hero.png",
@@ -31,7 +31,7 @@
 
   {
     "slug": "cross-vaulted-pavillion",
-    "title": "Cross Vaulted Pavillion",
+    "title": { "ja": "交差軒", "en": "Cross Vaulted Pavillion" },
     "category": { "ja": "建築設計", "en": "Architecture Design" },
     "year": "2022",
     "thumbnail": "/projects/cross-vaulted-pavillion/hero.jpg",
@@ -46,13 +46,16 @@
 
   {
     "slug": "build-the-wind",
-    "title": "Build the Wind",
+    "title": { "ja": "風を建てる", "en": "Build the Wind" },
     "category": { "ja": "インスタレーション", "en": "Art Installation" },
     "year": "2025",
     "thumbnail": "/projects/build-the-wind/hero.jpg",
     "featured": true,
     "focus": "bottom-zoom",
     "images": [
+      "/projects/build-the-wind/diagram_01.jpg",
+      "/projects/build-the-wind/diagram_02.jpg",
+      "/projects/build-the-wind/diagram_03.jpg",
       "/projects/build-the-wind/01.jpg",
       "/projects/build-the-wind/02.jpg",
       "/projects/build-the-wind/03.jpg",

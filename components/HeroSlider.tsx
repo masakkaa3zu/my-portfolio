@@ -112,7 +112,7 @@ export default function HeroSlider() {
             <div className="absolute inset-0 overflow-hidden">
               <Image
                 src={p.thumbnail}
-                alt={p.title}
+                alt={p.title[locale]}
                 fill
                 className="object-cover"
                 style={getImageStyle(p)}
@@ -127,7 +127,7 @@ export default function HeroSlider() {
                   {p.category[locale]}
                 </p>
                 <h1 className="text-sm font-futura-light mt-1">
-                  {p.title}
+                  {p.title[locale]}
                 </h1>
               </div>
             )}

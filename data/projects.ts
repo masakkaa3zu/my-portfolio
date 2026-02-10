@@ -6,7 +6,7 @@ export type LocalizedString = { ja: string; en: string };
 
 export type Project = {
   slug: string;
-  title: string;
+  title: LocalizedString;
   category: LocalizedString;
   year: string;
   thumbnail: string;
