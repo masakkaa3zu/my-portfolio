@@ -14,12 +14,14 @@ export type Project = {
   focus: "bottom" | "bottom-zoom" | "center" | "top";
   images: string[];
   description: LocalizedString;
+  visible?: boolean;
   tags?: string[];
 };
 
-export const projects = projectsJson as Project[];
+const allProjects = projectsJson as Project[];
 
+export const projects = allProjects.filter((p) => p.visible !== false);
 export const featuredProjects = projects.filter((p) => p.featured);
 export const nonFeaturedProjects = projects.filter((p) => !p.featured);
 export const findProjectBySlug = (slug: string) =>
-  projects.find((p) => p.slug === slug);
+  allProjects.find((p) => p.slug === slug);

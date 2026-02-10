@@ -20,6 +20,7 @@
     "category": { "ja": "建築設計", "en": "Architecture Design" },
     "year": "2022",
     "thumbnail": "/projects/house-s/hero.png",
+    "visible": false,
     "featured": false,
     "focus": "bottom",
     "images": [
