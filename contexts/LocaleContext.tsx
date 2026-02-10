@@ -2,7 +2,7 @@
 
 import { createContext, useContext, useEffect, useState, type ReactNode } from "react";
 
-export type Locale = "en" | "en";
+export type Locale = "ja" | "en";
 
 type LocaleContextType = {
   locale: Locale;
@@ -19,14 +19,14 @@ export function LocaleProvider({ children }: { children: ReactNode }) {
 
   useEffect(() => {
     const saved = localStorage.getItem("locale");
-    if (saved === "en" || saved === "en") {
+    if (saved === "en" || saved === "ja") {
       setLocale(saved);
     }
   }, []);
 
   const toggleLocale = () => {
     setLocale((prev) => {
-      const next = prev === "en" ? "en" : "en";
+      const next = prev === "ja" ? "en" : "ja";
       localStorage.setItem("locale", next);
       return next;
     });
