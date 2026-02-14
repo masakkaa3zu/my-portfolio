@@ -3,17 +3,50 @@
 import Image from "next/image";
 import { useEffect, useState } from "react";
 import { projects } from "@/data/projects";
+import type { Project } from "@/data/projects";
 import { useLocale } from "@/contexts/LocaleContext";
+
+type Slide = {
+  image: string;
+  focus: string;
+  title: { ja: string; en: string };
+  category: { ja: string; en: string };
+};
+
+function buildSlides(featuredProjects: Project[]): Slide[] {
+  const result: Slide[] = [];
+  for (const p of featuredProjects) {
+    if (p.heroSlides && p.heroSlides.length > 0) {
+      for (const hs of p.heroSlides) {
+        result.push({
+          image: hs.image,
+          focus: hs.focus || p.focus || "center",
+          title: p.title,
+          category: p.category,
+        });
+      }
+    } else {
+      result.push({
+        image: p.thumbnail,
+        focus: p.focus || "center",
+        title: p.title,
+        category: p.category,
+      });
+    }
+  }
+  return result;
+}
 
 export default function HeroSlider() {
   const { locale } = useLocale();
   const featured = projects.filter((p) => p.featured);
+  const realSlides = buildSlides(featured);
 
   // クローン方式で無限ループ
   const slides = [
-    featured[featured.length - 1], // 末尾クローン
-    ...featured,
-    featured[0],                   // 先頭クローン
+    realSlides[realSlides.length - 1], // 末尾クローン
+    ...realSlides,
+    realSlides[0],                     // 先頭クローン
   ];
 
   const [index, setIndex] = useState(1); // 最初は実スライド0
@@ -53,14 +86,14 @@ export default function HeroSlider() {
     }
     if (index === 0) {
       setAnimating(false);
-      setIndex(featured.length);
+      setIndex(realSlides.length);
     }
   };
 
   // =====================================
   //    focusMode によって構図を変える
   // =====================================
-  const getImageStyle = (slide: any): React.CSSProperties => {
+  const getImageStyle = (slide: Slide): React.CSSProperties => {
     const mode = slide.focus || "center";
 
     if (mode === "bottom-zoom") {
@@ -111,7 +144,7 @@ export default function HeroSlider() {
             {/* 画像 */}
             <div className="absolute inset-0 overflow-hidden">
               <Image
-                src={p.thumbnail}
+                src={p.image}
                 alt={p.title[locale]}
                 fill
                 className="object-cover"
@@ -142,10 +175,10 @@ export default function HeroSlider() {
       {/*           インジケータ（短い線）           */}
       {/* ===================================== */}
       <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex gap-2 z-30">
-        {featured.map((_, realIndex) => {
+        {realSlides.map((_, realIndex) => {
           const displayIndex =
             index === 0
-              ? featured.length - 1
+              ? realSlides.length - 1
               : index === slides.length - 1
               ? 0
               : index - 1;

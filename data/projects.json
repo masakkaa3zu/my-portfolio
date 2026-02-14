@@ -89,8 +89,8 @@
     "category": { "ja": "建築設計", "en": "Architecture Design" },
     "year": "2025",
     "thumbnail": "/projects/shin-minato-library/hero.jpg",
-    "featured": false,
-    "focus": "center",
+    "featured": true,
+    "focus": "bottom",
     "collaborators": [
       { "ja": "井田莉子", "en": "Riko Ida" },
       { "ja": "田中渚紗", "en": "Nagisa Tanaka" }
@@ -107,6 +107,10 @@
     "thumbnail": "/projects/build-the-wind/hero.jpg",
     "featured": true,
     "focus": "bottom-zoom",
+    "heroSlides": [
+      { "image": "/projects/build-the-wind/hero.jpg", "focus": "bottom-zoom" },
+      { "image": "/projects/build-the-wind/01.jpg", "focus": "top" }
+    ],
     "assistants": [
       { "ja": "杉山日渚", "en": "Hiina Sugiyama" }
     ],

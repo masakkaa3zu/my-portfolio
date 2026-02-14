@@ -18,6 +18,7 @@ export type Project = {
   tags?: string[];
   collaborators?: { ja: string; en: string }[];
   assistants?: { ja: string; en: string }[];
+  heroSlides?: { image: string; focus?: "bottom" | "bottom-zoom" | "center" | "top" | "top-zoom" }[];
 };
 
 const allProjects = projectsJson as Project[];
