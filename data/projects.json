@@ -53,7 +53,7 @@
     "year": "2024",
     "thumbnail": "/projects/kanepo/hero.jpg",
     "featured": false,
-    "focus": "center",
+    "focus": "top",
     "collaborators": [
       { "ja": "藤原彰大", "en": "Akihiro Fujiwara" },
       { "ja": "森本結輝ルーク", "en": "Yuki Luke Morimoto" }

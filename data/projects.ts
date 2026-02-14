@@ -11,7 +11,7 @@ export type Project = {
   year: string;
   thumbnail: string;
   featured: boolean;
-  focus: "bottom" | "bottom-zoom" | "center" | "top";
+  focus: "bottom" | "bottom-zoom" | "center" | "top" | "top-zoom";
   images: string[];
   description: LocalizedString;
   visible?: boolean;

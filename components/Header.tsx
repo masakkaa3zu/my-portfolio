@@ -13,6 +13,8 @@ export default function Header() {
 
   const pathname = usePathname();
   const isHome = pathname === "/";
+  const isProject = pathname.startsWith("/projects/");
+  const hasHero = isHome || isProject;
 
   useEffect(() => {
     const handleScroll = () => {
@@ -20,7 +22,7 @@ export default function Header() {
       setIsOnHero(window.scrollY < heroHeight);
     };
 
-    if (isHome) {
+    if (hasHero) {
       window.addEventListener("scroll", handleScroll);
       handleScroll();
     } else {
@@ -30,11 +32,11 @@ export default function Header() {
     return () => {
       window.removeEventListener("scroll", handleScroll);
     };
-  }, [isHome]);
+  }, [hasHero]);
 
-  const color = isHome && isOnHero ? "text-white" : "text-black";
+  const color = hasHero && isOnHero ? "text-white" : "text-black";
   // ★ 追加：背景色を切り替えるクラス
-  const headerBg = isHome && isOnHero ? "bg-transparent" : "bg-white";
+  const headerBg = hasHero && isOnHero ? "bg-transparent" : "bg-white";
 
   return (
     <>

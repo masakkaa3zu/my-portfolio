@@ -22,6 +22,15 @@ export default function ProjectDetailContent({ project }: Props) {
         src={project.thumbnail}
         className="w-full h-screen object-cover"
         alt={project.title[locale]}
+        style={{
+          objectPosition:
+            project.focus === "top" || project.focus === "top-zoom" ? "center top" :
+            project.focus === "bottom" || project.focus === "bottom-zoom" ? "center bottom" :
+            "center center",
+          ...(project.focus === "top-zoom" ? { transformOrigin: "top center", transform: "scale(1.2)" } :
+             project.focus === "bottom-zoom" ? { transformOrigin: "bottom center", transform: "scale(1.2)" } :
+             {}),
+        }}
       />
 
       <div
