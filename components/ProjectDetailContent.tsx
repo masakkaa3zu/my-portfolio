@@ -42,6 +42,11 @@ export default function ProjectDetailContent({ project }: Props) {
           <span className="block text-[10px] font-futura text-neutral-400">
             {project.year}
           </span>
+          {project.collaborators && project.collaborators.length > 0 && (
+            <p className="mt-1 text-[10px] font-futura text-neutral-400">
+              {locale === "ja" ? "共同設計：" : "with "}{project.collaborators.map((c) => c[locale]).join(", ")}
+            </p>
+          )}
           <p className="mt-4 text-[13px] leading-loose">{project.description[locale]}</p>
         </div>
 

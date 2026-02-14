@@ -8,8 +8,8 @@
     "featured": false,
     "focus": "bottom",
     "images": [
-      "/projects/hexagonal-stools/01.png",
-      "/projects/hexagonal-stools/02.png"
+      "/projects/hexagonal-stools/marking.jpg",
+      "/projects/hexagonal-stools/drawing.jpg"
     ],
     "description": { "ja": "12mm三六判のラワン合板1枚からスツールを制作した。6角形のリングの寸法を少しずつずらすことによりより歩留まり向上を図り、パーツを積み上げる際に角度をずらすことにより折れを防止しながら平面積層での高さを座高まで高めている。", "en": "I made a stool from a single 12 mm lauan plywood sheet (3×6 shaku size =910mm×1820mm). By gradually shifting the dimensions of the hexagonal rings, I improved material yield. When stacking the parts, I also rotated the angles to prevent splitting, which allowed the flat-laminated assembly to reach seat height." }
   },
@@ -44,6 +44,59 @@
       "/projects/cross-vaulted-pavillion/1000roofs.gif"
     ],
     "description": { "ja": "大学の遊歩道の交差点上に休憩所を設計した。構造的合理性と通行上の機能性に優れたヴォールトを何方向にも交差させることにより、その場所の交差点をより複雑化させた。ただ通り過ぎる学生もいれば、知り合いを待ち合わせをする学生、読書をする学生、昼寝をする学生がいる。屋上は展望庭園になっている。この屋根の設計をコンピュータープログラムに書き下し、乱数を組み合わせることにより無数の可能性を列挙することができる。3本の基準となる歩道の角度を変えることにより、無数の屋根の形状の可能性を生み出す。", "en": "I designed a rest area at the intersection of pedestrian paths on a university campus. By intersecting vaults—structures that are both structurally rational and functionally efficient for circulation—in multiple directions, I made the intersection itself more complex. Some students simply pass through, while others wait for friends, read, or take a nap. The roof is designed as a rooftop viewing garden. I translated this roof design into a computer program, enabling it to enumerate countless possibilities through combinations of random variables. By changing the angles of the three reference pedestrian paths, the program can generate an infinite range of roof forms." }
+  },
+
+  {
+    "slug": "kanepo",
+    "title": { "ja": "香音歩", "en": "Kanepo" },
+    "category": { "ja": "まちづくり提案 アプリケーション設計", "en": "Urban Design Proposal / Application Design" },
+    "year": "2024",
+    "thumbnail": "/projects/kanepo/hero.jpg",
+    "featured": false,
+    "focus": "center",
+    "collaborators": [
+      { "ja": "藤原彰大", "en": "Akihiro Fujiwara" },
+      { "ja": "森本結輝ルーク", "en": "Yuki Luke Morimoto" }
+    ],
+    "images": [
+      "/projects/kanepo/pic_1.jpg",
+      "/projects/kanepo/pic_2.JPG",
+      "/projects/kanepo/pic_3.JPG",
+      "/projects/kanepo/board.jpg"
+    ],
+    "description": { "ja": "神奈川県藤沢市遠藤地区で、人々が新しい風景と出会うためのアプリの設計をした。私立大学が置かれているこの地域の周辺は田園地帯が広がる。農家や畜産業を営む住民も多くのどかな風景が保たれている。大学に通う学生は駅からバスで通学するため、周辺の地域に出向くことは少なく、学校の周りに何があるのか知らずに学生生活を終える人も少なくない。地域の調査をすると、のどかな地域であるがゆえに季節や時間とともに変化していくさまがこの地域の魅力として発見された。そこから、地域の音や香りをきっかけに散歩道を設計することをデザインした。使用者はアプリ上で地域の音と香りのマップを疑似的に体験し、気に入った地点をもとに散歩道が生成される。そして、生成された散歩道をアプリを片手に歩いていくと突然道案内が停止する。ユーザーはそこで実際の地域の音、香りはじめ新しい風景に出会う。明確な目的地を持たない散歩を音や香りで導き、そこで新たな風景を体験することのできるアプリを目指した。", "en": "I designed an app to help people discover new landscapes in the Endo district of Fujisawa, Kanagawa Prefecture. The area surrounding the private university here is spread with rural farmland. Many residents are farmers or livestock keepers, and the idyllic scenery is well preserved. Students commute by bus from the station and rarely venture into the surrounding area—many finish their university life without ever knowing what lies around campus. Through field research, I discovered that the charm of this area lies in how it changes with the seasons and times of day, precisely because of its pastoral character. From this insight, I designed walking routes triggered by local sounds and scents. Users experience a simulated map of the area's sounds and scents on the app, and a walking route is generated based on the points they find appealing. As they walk the generated route with the app in hand, the navigation suddenly stops. There, users encounter the actual sounds, scents, and new landscapes of the area. The app aims to guide aimless walks through sound and scent, leading users to experience new scenery along the way." }
+  },
+
+  {
+    "slug": "tsukiji-complex",
+    "title": { "ja": "築地コンプレックス", "en": "Tsukiji Complex" },
+    "category": { "ja": "建築設計", "en": "Architecture Design" },
+    "year": "2025",
+    "thumbnail": "/projects/tsukiji-complex/hero.jpg",
+    "featured": false,
+    "focus": "center",
+    "images": [
+      "/projects/tsukiji-complex/pic_1.png",
+      "/projects/tsukiji-complex/pic_2.jpg",
+      "/projects/tsukiji-complex/pic_3.jpg"
+    ],
+    "description": { "ja": "再開発が計画される東京築地の敷地に商業施設、図書館、保育園が一体となった複合施設を設計した。中央卸売市場の豊洲移転に伴い、跡地には大規模な再開発が計画される一方、北側の築地場外市場は賑わいを保ち続けている。対象敷地は場外市場の新大橋通を挟んで向かい側にあり、築地と銀座の結節点となる。建物は鉄筋コンクリートのラーメン構造を露出させ、その3次元グリッド状の構造に対して無数のスラブが配置される。そして、立体迷路のようにスラブを階段がつないでいる。各スラブの面積は大小あり、機能に応じて配置が決定される。また、立体迷路のような動線は観光客や商業施設への来訪者と、図書館や保育園などの地域住民とで分離している。同じ敷地に立体的に隣接しているが、動線は交わらないことで機能性、安全性を保持している。", "en": "I designed a mixed-use complex integrating commercial facilities, a library, and a nursery on a site in Tsukiji, Tokyo, where redevelopment is planned. Following the relocation of the Central Wholesale Market to Toyosu, large-scale redevelopment is planned for the former site, while the Tsukiji Outer Market to the north continues to thrive. The project site is located across Shin-Ohashi-dori from the outer market, serving as a node between Tsukiji and Ginza. The building exposes its reinforced concrete rigid-frame structure, with numerous slabs arranged within this three-dimensional grid. Stairs connect the slabs like a three-dimensional maze. The slabs vary in size, and their placement is determined by function. The maze-like circulation separates tourists and commercial visitors from local residents using the library and nursery. Though spatially adjacent on the same site, the non-intersecting circulation paths maintain both functionality and safety." }
+  },
+
+  {
+    "slug": "shin-minato-library",
+    "title": { "ja": "新みなと図書館", "en": "Shin-Minato Library" },
+    "category": { "ja": "建築設計", "en": "Architecture Design" },
+    "year": "2025",
+    "thumbnail": "/projects/shin-minato-library/hero.jpg",
+    "featured": false,
+    "focus": "center",
+    "collaborators": [
+      { "ja": "井田莉子", "en": "Riko Ida" },
+      { "ja": "田中渚紗", "en": "Nagisa Tanaka" }
+    ],
+    "images": [],
+    "description": { "ja": "東京都港区芝公園の北東の敷地にある港区立図書館の建て替え計画案。図書館としての利便性と、公園の中にある図書館という街の風景との呼応を設計に取り入れた。", "en": "A proposal for rebuilding the Minato City library on a site in the northeast corner of Shiba Park, Minato, Tokyo. The design incorporates both the functional convenience of a library and a responsiveness to the urban landscape of a library situated within a park." }
   },
 
   {
