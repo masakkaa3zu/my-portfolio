@@ -17,6 +17,7 @@ export type Project = {
   visible?: boolean;
   tags?: string[];
   collaborators?: { ja: string; en: string }[];
+  assistants?: { ja: string; en: string }[];
 };
 
 const allProjects = projectsJson as Project[];

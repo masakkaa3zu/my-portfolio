@@ -107,6 +107,9 @@
     "thumbnail": "/projects/build-the-wind/hero.jpg",
     "featured": true,
     "focus": "bottom-zoom",
+    "assistants": [
+      { "ja": "杉山日渚", "en": "Hiina Sugiyama" }
+    ],
     "images": [
       "/projects/build-the-wind/diagram_01.jpg",
       "/projects/build-the-wind/diagram_02.jpg",

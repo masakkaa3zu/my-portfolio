@@ -56,6 +56,11 @@ export default function ProjectDetailContent({ project }: Props) {
               {locale === "ja" ? "共同設計：" : "with "}{project.collaborators.map((c) => c[locale]).join(", ")}
             </p>
           )}
+          {project.assistants && project.assistants.length > 0 && (
+            <p className="mt-1 text-[10px] font-futura text-neutral-400">
+              {locale === "ja" ? "制作補助：" : "Production Assistant: "}{project.assistants.map((a) => a[locale]).join(", ")}
+            </p>
+          )}
           <p className="mt-4 text-[13px] leading-loose">{project.description[locale]}</p>
         </div>
 
