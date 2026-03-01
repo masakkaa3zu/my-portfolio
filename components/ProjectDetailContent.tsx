@@ -70,7 +70,16 @@ export default function ProjectDetailContent({ project }: Props) {
           const credit = typeof item === "string" ? null : item.credit;
           return (
             <div key={src} className="col-span-4 md:col-span-2 md:col-start-2 mt-10">
-              {src.endsWith(".mp4") ? (
+              {src.includes("youtu.be/") || src.includes("youtube.com/") ? (
+                <div className="relative w-full" style={{ paddingBottom: "56.25%" }}>
+                  <iframe
+                    src={`https://www.youtube.com/embed/${src.includes("youtu.be/") ? src.split("youtu.be/")[1].split("?")[0] : new URL(src).searchParams.get("v")}`}
+                    className="absolute inset-0 w-full h-full"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowFullScreen
+                  />
+                </div>
+              ) : src.endsWith(".mp4") ? (
                 <video src={src} className="w-full" controls playsInline />
               ) : (
                 <img src={src} className="w-full" alt="" />
