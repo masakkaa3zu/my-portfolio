@@ -64,12 +64,25 @@ export default function ProjectDetailContent({ project }: Props) {
           <p className="mt-4 text-[13px] leading-loose">{project.description[locale]}</p>
         </div>
 
-        {/* 詳細画像：2〜3列目 */}
-        {project.images.map((img) => (
-          <div key={img} className="col-span-4 md:col-span-2 md:col-start-2 mt-10">
-            <img src={img} className="w-full" alt="" />
-          </div>
-        ))}
+        {/* 詳細画像・動画：2〜3列目 */}
+        {project.images.map((item) => {
+          const src = typeof item === "string" ? item : item.src;
+          const credit = typeof item === "string" ? null : item.credit;
+          return (
+            <div key={src} className="col-span-4 md:col-span-2 md:col-start-2 mt-10">
+              {src.endsWith(".mp4") ? (
+                <video src={src} className="w-full" controls playsInline />
+              ) : (
+                <img src={src} className="w-full" alt="" />
+              )}
+              {credit && (
+                <p className="mt-2 text-[10px] font-futura text-neutral-400">
+                  {credit[locale]}
+                </p>
+              )}
+            </div>
+          );
+        })}
       </div>
     </div>
   );

@@ -12,7 +12,7 @@ export type Project = {
   thumbnail: string;
   featured: boolean;
   focus: "bottom" | "bottom-zoom" | "center" | "top" | "top-zoom";
-  images: string[];
+  images: (string | { src: string; credit: LocalizedString })[];
   description: LocalizedString;
   visible?: boolean;
   tags?: string[];
