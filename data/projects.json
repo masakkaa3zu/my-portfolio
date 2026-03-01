@@ -73,13 +73,12 @@
     "title": { "ja": "築地コンプレックス", "en": "Tsukiji Complex" },
     "category": { "ja": "建築設計", "en": "Architecture Design" },
     "year": "2025",
-    "thumbnail": "/projects/tsukiji-complex/hero.jpg",
+    "thumbnail": "/projects/tsukiji-complex/model_3.jpg",
     "featured": false,
     "focus": "center",
     "images": [
-      "/projects/tsukiji-complex/pic_1.png",
-      "/projects/tsukiji-complex/pic_2.jpg",
-      "/projects/tsukiji-complex/pic_3.jpg"
+      "/projects/tsukiji-complex/model_2.jpg",
+      "/projects/tsukiji-complex/model_1.jpg"
     ],
     "description": { "ja": "再開発が計画される東京築地の敷地に商業施設、図書館、保育園が一体となった複合施設を設計した。中央卸売市場の豊洲移転に伴い、跡地には大規模な再開発が計画される一方、北側の築地場外市場は賑わいを保ち続けている。対象敷地は場外市場の新大橋通を挟んで向かい側にあり、築地と銀座の結節点となる。建物は鉄筋コンクリートのラーメン構造を露出させ、その3次元グリッド状の構造に対して無数のスラブが配置される。そして、立体迷路のようにスラブを階段がつないでいる。各スラブの面積は大小あり、機能に応じて配置が決定される。また、立体迷路のような動線は観光客や商業施設への来訪者と、図書館や保育園などの地域住民とで分離している。同じ敷地に立体的に隣接しているが、動線は交わらないことで機能性、安全性を保持している。", "en": "I designed a mixed-use complex integrating commercial facilities, a library, and a nursery on a site in Tsukiji, Tokyo, where redevelopment is planned. Following the relocation of the Central Wholesale Market to Toyosu, large-scale redevelopment is planned for the former site, while the Tsukiji Outer Market to the north continues to thrive. The project site is located across Shin-Ohashi-dori from the outer market, serving as a node between Tsukiji and Ginza. The building exposes its reinforced concrete rigid-frame structure, with numerous slabs arranged within this three-dimensional grid. Stairs connect the slabs like a three-dimensional maze. The slabs vary in size, and their placement is determined by function. The maze-like circulation separates tourists and commercial visitors from local residents using the library and nursery. Though spatially adjacent on the same site, the non-intersecting circulation paths maintain both functionality and safety." }
   },
