@@ -91,6 +91,19 @@ data/
 - スクロールしてヒーロー画像を過ぎると白背景＋黒文字に切り替わる
 - それ以外のページ（About 等）では常に白背景＋黒文字
 
+## 動画の追加方法
+- `images` 配列は文字列（画像パス）に加えて `{ "src": "URL", "credit": { "ja": "...", "en": "..." } }` 形式のオブジェクトも対応
+- `.mp4` で終わるパスは自動的に `<video>` タグで表示される
+- 100MBを超える動画ファイルはGitHubの制限でpushできないため、**GitHub Releases** にアップロードしてURLで参照する
+  - リポジトリの Releases (`assets-v1` タグ) にファイルをアップロード
+  - `"src": "https://github.com/masakkaa3zu/my-portfolio/releases/download/assets-v1/<filename>"` で参照
+- `credit` を指定すると動画の下にクレジットが小さく表示される
+- **大容量動画（100MB超）は YouTube（限定公開可）を推奨**
+  - YouTube にアップロードし、`youtu.be/XXXX` または `youtube.com/watch?v=XXXX` のURLをそのまま `images` に記載
+  - `ProjectDetailContent.tsx` が YouTube URL を自動検出し、16:9のiframeで埋め込む
+
 ## 注意事項
 - `DevGridOverlay` は開発用。本番で非表示にするには `app/layout.tsx` の `SHOW_DEV_GRID` を `false` に
 - `nul` ファイル（ルート直下）は Windows の誤生成ファイル、削除可
+- 画像は必ず **RGB** カラーモードで配置すること（CMYKだとブラウザで色がおかしくなる）
+- リポジトリは **public** に設定済み（GitHub Releasesの動画URLに外部からアクセスするため）
