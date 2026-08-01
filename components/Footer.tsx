@@ -25,6 +25,9 @@ export default function Footer() {
           </a>
         </p>
       </div>
+      <p className="mt-8 text-xs opacity-60">
+        © {new Date().getFullYear()} Masakazu Sakakibara
+      </p>
     </footer>
   );
 }
